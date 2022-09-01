@@ -1,0 +1,23 @@
+.title {
+    font-family: "FontAwesome";
+    display: inline-block;
+    padding-right: .5rem;
+    &--warning {
+        &::before {
+            content: "\f071";
+            color: gold;
+        }
+    }
+    &--error {
+        &::before {
+            content: "\f1e2";
+            color: darkred;
+        }
+    }
+    &--info {
+        &::before {
+            content: "\f05a";
+            color: darkblue;
+        }
+    }
+}

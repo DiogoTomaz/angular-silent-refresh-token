@@ -1,0 +1,7 @@
+<h1 mat-dialog-title><i aria-hidden="true" class="fa title" [ngClass]="{'title--warning': data.type === 'warning', 'title--info': data.type === 'info', 'title--error': data.type === 'error'}"></i>{{ data.title }}</h1>
+<div mat-dialog-content>
+    {{ data.message }}
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+</div>

@@ -1,0 +1,19 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    border-radius: inherit;
+    background-color: #1976d2;
+    padding: 2rem;
+    cursor: pointer;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    i {
+        color: white;
+        font-size: x-large;
+    }
+}

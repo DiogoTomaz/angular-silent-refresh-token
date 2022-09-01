@@ -1,0 +1,60 @@
+.content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+}
+
+svg#rocket {
+    width: 70px;
+    position: absolute;
+    left: -25px;
+    top: -24px;
+}
+
+.card-container {
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    .card:not(card--highlight):hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    }
+    .card:not(card--highlight):hover .font-awesome-icon path {
+        fill: rgb(105, 103, 103);
+    }
+    .card:not(:last-child) {
+        margin-right: 0;
+    }
+}
+
+.font-awesome-icon {
+    height: 24px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+        margin-right: 8px;
+    }
+}
+
+
+/* Responsive Styles */
+
+@media screen and (max-width: 767px) {
+    .card:not(card--highlight) {
+        height: 16px;
+        margin: 8px 0;
+    }
+    .card--highlight span {
+        margin-left: 72px;
+    }
+    svg#rocket-smoke {
+        right: 120px;
+        transform: rotate(-5deg);
+    }
+}

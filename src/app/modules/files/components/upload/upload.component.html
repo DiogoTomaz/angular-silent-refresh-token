@@ -1,0 +1,9 @@
+<label for="input-file-id">
+    <i class="fa fa-upload font-awesome-icon"></i>
+</label>
+<input hidden id="input-file-id" type="file" (change)="onFileSelected($event)" />
+
+<span>{{ file?.name || "No file uploaded yet."}}</span>
+<ng-container *ngIf="isUploadingInProgress$ | async as isInProgress">
+    <mat-spinner *ngIf="isInProgress"></mat-spinner>
+</ng-container>

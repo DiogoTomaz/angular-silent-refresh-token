@@ -1,0 +1,25 @@
+<div class="toolbar" role="banner">
+    <img class="toolbar__icon" alt="Code Invaders" src="https://freesvg.org/img/invader.png" />
+
+    <div class="profile" *ngIf="userActionChange$ | async as userAction">
+        <ng-container [ngSwitch]="userAction.status">
+            <ng-container *ngSwitchCase="authenticationStatus.LoggedIn">
+                <span *ngIf="tokenExpiresIn$ | async as expiresIn">Token expires in: {{ expiresIn }}</span>
+                <span>Welcome, {{ userAction.user | userName }}</span>
+                <button type="button" aria-label="Log out" (click)="logout()">Logout</button>
+            </ng-container>
+            <ng-container *ngSwitchCase="authenticationStatus.LoggedOut">
+                <span>Re-login, {{ userAction.user | userName }}</span>
+                <ng-container *ngTemplateOutlet="logInButton"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="authenticationStatus.NoUser">
+                <span>Please login</span>
+                <ng-container *ngTemplateOutlet="logInButton"></ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #logInButton>
+    <button type="button" aria-label="Log in" (click)="login()">Login</button>
+</ng-template>

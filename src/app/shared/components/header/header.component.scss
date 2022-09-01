@@ -1,0 +1,33 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    &__icon {
+        width: 40px;
+        animation-duration: 3s;
+        animation-name: slidein;
+        @keyframes slidein {
+            from {
+                margin-left: 50%;
+            }
+            to {
+                margin-left: 0%;
+            }
+        }
+    }
+}
+
+.profile {
+    display: flex;
+    gap: 1rem;
+}

@@ -1,0 +1,26 @@
+<form class="login-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+        <mat-label for="username">User name</mat-label>
+        <input matInput placeholder="Enter user name" value="" id="username" formControlName="username">
+        <ng-container *ngIf="fcUsername.invalid">
+            <mat-error *ngIf="fcUsername.errors!.required">Please enter a username</mat-error>
+            <mat-error *ngIf="fcUsername.errors!.minlength">Username should have at least {{ fcUsername.errors!.minlength.requiredLength }} characters</mat-error>
+        </ng-container>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="password">Password</mat-label>
+        <input matInput placeholder="Enter your password" value="" id="password" type="password" formControlName="password">
+        <ng-container *ngIf="fcPassword.invalid">
+            <mat-error *ngIf="fcPassword.errors!.required">Please enter a password</mat-error>
+            <mat-error *ngIf="fcPassword.errors!.minlength">Password should have at least {{ fcPassword.errors!.minlength.requiredLength }} characters</mat-error>
+        </ng-container>
+    </mat-form-field>
+
+    <mat-error *ngIf="formGroup.errors?.invalidLogin">Failed to login</mat-error>
+
+    <mat-spinner [diameter]="20" *ngIf="showSpinner"></mat-spinner>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close aria-label="Close Login" [disabled]="showSpinner">Close</button>
+        <button mat-button aria-label="Login" [disabled]="!formGroup.valid || formGroup.pristine || showSpinner" (click)="onSubmit()">Login</button>
+    </mat-dialog-actions>
+</form>
